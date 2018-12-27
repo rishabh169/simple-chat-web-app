@@ -4,6 +4,8 @@ const express = require('express');
 const socketIO = require('socket.io');
 const {generateMessage}  = require('./utils/message')
 const publicPath = path.join(__dirname,'../public');
+const port =process.env.PORT || 3000;
+
 
 var app = express();
 var server = http.createServer(app);
@@ -43,6 +45,6 @@ io.on('connection' ,function(socket){
 
 app.use(express.static(publicPath));
 
-server.listen(3000,function(){
+server.listen(port,function(){
 	console.log('server is up');
 });
